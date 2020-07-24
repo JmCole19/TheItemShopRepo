@@ -36,19 +36,19 @@ const paymentSchema = {
 const orderItemSchema = new _mongoose.default.Schema({
   name: {
     type: String,
-    required: false
+    required: true
   },
   qty: {
     type: Number,
-    required: false
+    required: true
   },
   image: {
     type: String,
-    required: false
+    required: true
   },
   price: {
     type: String,
-    required: false
+    required: true
   },
   product: {
     type: _mongoose.default.Schema.Types.ObjectId,

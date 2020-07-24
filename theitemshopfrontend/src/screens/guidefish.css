@@ -1,0 +1,10 @@
+.fishPagediv {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+.fishDatadiv {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}

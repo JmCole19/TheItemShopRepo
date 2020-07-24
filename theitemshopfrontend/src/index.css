@@ -1,15 +1,19 @@
 html{
   font-size: 62.5%;
   box-sizing: border-box;
+  ;
 }
 body{
   font: 1.6rem Helvetica;
   height: 100vh;
   margin: 0;
-  background-color: rgba(203, 235, 173, 0.212);
+ ;
 }
 button{
   font-size: 1.6rem;
+}
+a {
+  color: black;
 }
 .full-width {
   width: 100%;
@@ -28,20 +32,20 @@ button{
   height: 100%;
   width: 100%;
   justify-items: center;
+  background-color: white;
 }
 .main {
   width: 100%;
   margin-bottom: 25px;
-  display: flex;
   justify-content: center;
   flex-direction: column;
 }
 .header{
   grid-area: header;
   height: 90px;
-  width: 1400px;
-  border-radius: 35px;
-  margin: 85px 0px 0px 0px;
+  width: 140rem;
+  border-radius: 15px;
+  margin: 5px 0px 0px 0px;
   background-color: rgba(13, 195, 250, 0.657);
   color: white;
   display: flex;
@@ -70,38 +74,34 @@ button{
   border-radius: 8px;
   color: #53565A;
   font-size: 20px;
-  font-weight: 300;
+
   transition: 0.4s ease-out;
 }
 
 .searchbox:focus{
   box-shadow: 0px 0px 8px 3px #f0c040;
 }
-
-.brand a{
-  color: white;
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  flex-shrink: 0;
-  margin-left: 3px;
-
+.logo {
+  background-color: rgba(240, 255, 240, 0);
+  border: none;
 }
+
 .headerLinks {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  
+  text-decoration: none;
 }
 .signInbutt {
   height: 55px;
-  width: 130px;
+  width: 135px;
+  flex-wrap: wrap;
   border-radius: 10px;
-  background-color: #f8a826;
-  color: white;
+  background-color: orange;
+  color: rgb(0, 0, 0);
   font-family: Helvetica, Arial, Sans-Serif;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   text-decoration: none;
   text-shadow: -1px -1px 1px #0742ca;
@@ -110,18 +110,18 @@ button{
   box-shadow: 5px 5px 0 rgba(73, 73, 73, 0.794);
   transition: all 0.3s ease;
   margin: 0 10px 0 0;
+  align-self: center;
 }
-.signInbutt:hover {
+.signInbutt:hover, .cartButt:hover, .adminButt:hover, .button.primary:hover, .button:hover, .signUpbutton:hover {
   box-shadow: 0px 0px 0 #666;
   top: 5px;
   left: 5px;
 }
-.cartButt {
+.cartButt,.adminButt, .button {
   height: 55px;
   width: 100px;
   border-radius: 10px;
-  color: white;
-  background-color: #f8a826;
+  background-color:orange;
   font-family: Helvetica, Arial, Sans-Serif;
   font-size: 20px;
   text-decoration: none;
@@ -132,36 +132,45 @@ button{
   transition: all 0.3s ease;
   margin: 0 10px 0 5px;
 }
-.cartButt:hover {
-  box-shadow: 0px 0px 0px rgb(2, 175, 11);
-  top: 5px;
-  left: 5px;
+.Link {
+  color: black;
+  text-decoration: none !important;
 }
-
 .main{
   grid-area: main;
 }
-.footerDiv ,.itemHeaderdiv,.headerDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .footer{
-  background-color: rgba(13, 195, 250, 0.972);
+  background-color: rgba(13, 195, 250, 0.657);
   text-align: center;
   padding: 20px;
   position: absolute;
-  height: 70px;
-  width: 80%;
-  min-width: 80%;
-  border-radius: 18px;
-  margin-top: 65px;
+  height: 100px;
+  width: 140rem;
+  border-radius: 15px;
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
+.footerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0px;
+}
+.footer-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .checkout-steps{
   display: flex;
   justify-content: space-between;
   width: 40rem;
   margin: 1rem auto;
+  margin-top: 5rem;
 
 }
 .checkout-steps > div{
@@ -169,56 +178,14 @@ button{
   color: #c0c0c0;
   flex: 1 1;
   padding-top: 1rem;
+  font-size: 15px;
 }
 .checkout-steps > div.active{
   border-top: .3rem #f08000 solid;
   color: #f08000;
+  font-size: 15px;
 }
-/* Place Order */
 
-.placeorder{
-  display: flex;
-  flex-grow: wrap;
-  padding: 1rem;
-  justify-content: space-between;
-}
-.placeorder-info{
-  flex: 3 1 60rem; 
-}
-.placeorder-action{
-  flex: 1 1 20rem;
-  border: .1rem #c0c0c0 solid;
-  border-radius: .5rem;
-  background-color: #fcfcfc;
-  padding: 1rem;
-}
-.placeorder-info > div{
-  border: .1rem #c0c0c0 solid;
-  border-radius: .5rem;
-  background-color: #fcfcfc;
-  padding: 1rem;
-  margin: 1rem;
-}
-.placeorder-info > div:first-child{
-  margin-top: 0;
-}
-.placeorder-action > ul {
-  padding: 0;
-  list-style-type: none;
-}
-.placeorder-action > ul > li{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-.placeorder-action > ul > li:last-child{
-    font-size: 2rem;
-    font-weight: bold;
-    color: #c04000;
-} 
-.placeorder-actions-payment > div{
-  width: 100%;
-}
 .dropdown{
   display: inline-block;
   position: relative;
@@ -243,15 +210,14 @@ button{
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 60px;
 
 }
 
-.content-margined{
-  margin: 1rem;
-}
 
 .table{
   width: 100%;
+  font-size: 20px;
 }
 th{
   text-align: left;
@@ -272,11 +238,7 @@ tbody>tr:nth-child(odd){
   flex: 2 1 10rem;
   
 }
-.details-image img{
-  max-width: 60rem;
-  width: 100%;
-  widows: 100%;
-}
+
 .details-info{
   flex: 1 1 30rem;
 }
@@ -297,7 +259,7 @@ tbody>tr:nth-child(odd){
 .details-action {
   border: .1rem #808080 solid;
   border-radius: .5rem;
-  background-color: #f8f8f8f8;
+  background-color: honeydew;
   padding: 1rem;
 }
 .details-action ul li:last-child{
@@ -309,13 +271,29 @@ tbody>tr:nth-child(odd){
   border: .1rem #808080 solid;
   cursor: pointer;
   border-radius: .5rem;
+}
 
-}
-.button:hover{
-  border: .1rem #808080 solid;
-}
 .button.primary{
-  background-color: #f0c040;
+  display: flex;
+  height: 55px;
+  width: 130px;
+  border-radius: 10px;
+  background-color: orange;
+  color: black;
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-size: 20px;
+  text-decoration: none;
+  text-shadow: -1px -1px 1px #0742ca;
+  box-shadow: 5px 5px 0 rgba(73, 73, 73, 0.794);
+  transition: all 0.3s ease;
+  margin: auto;
+  justify-content: center;
+}
+.button.primary.hover
+{
+  box-shadow: 0px 0px 0px rgb(2, 175, 11);
+  top: 5px;
+  left: 5px;
 }
 .button.secondary{
   background-color: #f0f0f0;
@@ -336,4 +314,150 @@ tbody>tr:nth-child(odd){
 
 .profile-orders{
   flex: 3 1 60rem;
+}
+
+
+
+/* Filter */
+.filter{
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 1rem;
+  max-width: 45rem;
+  justify-content: space-between;
+}
+
+.filter input,
+.filter button,
+.filter select{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: .1rem #c0c0c0c0;
+  font-size: 1.6rem;
+
+}
+
+
+.placeorder {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.placeorder-info {
+  flex: 3 1 60rem;
+}
+.placeorder-action {
+  flex: 1 1 20rem;
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  background-color: #fcfcfc;
+  padding: 1rem;
+}
+.placeorder-info > div {
+  border: 0.1rem #c0c0c0 solid;
+  border-radius: 0.5rem;
+  background-color: #fcfcfc;
+  padding: 1rem;
+  margin: 1rem;
+}
+.placeorder-info > div:first-child {
+  margin-top: 0;
+}
+.placeorder-action > ul {
+  padding: 0;
+  list-style-type: none;
+}
+.placeorder-action > ul > li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.placeorder-action > ul > li:last-child {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #c04000;
+}
+.placeorder-actions-payment > div {
+  width: 100%;
+}
+.top-placeholder{
+  width: 75%;
+}
+
+/* rating */
+
+/* Reviews */
+ul.review {
+  list-style-type: none;
+  padding: 0;
+}
+.review li {
+  margin: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.review li > div {
+  margin: 0.5rem;
+}
+
+/* Rating */
+.rating span {
+  color: #ffb901;
+  font-size: 1.8rem;
+  margin: 0.1rem;
+}
+.rating span:last-child {
+  color: #444444;
+  font-size: 1.4rem;
+}
+a > .rating > span:last-child {
+  color: #0000ff;
+}
+
+
+/*payment*/
+
+.payDiv {
+  margin-top: 15px;
+}
+.shipDiv {
+  margin-top: 15px;
+}
+.finOrderdiv {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 65px;
+}
+.proOrders {
+  margin-top: 65px;
+  display: flex;
+  justify-content: center;
+}
+.review-form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: .1rem #c0c0c0c0 solid;
+  border-radius: .5rem;
+  list-style-type: none;
+  background-color: honeydew;
+  border-radius: 15px;
+  margin: auto;
+}
+.topOrder{
+  display: flex;
+  justify-content: center;
+}
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+  font-size: 20px;
+}
+input{
+  font-size: 20px;
+}
+.shipping-font{
+  font-size: 20px;
 }

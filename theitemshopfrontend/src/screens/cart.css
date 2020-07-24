@@ -5,20 +5,26 @@
     flex-wrap: wrap;
     margin: 1rem;
     align-items: flex-start;
+    width: 40%;
+  }
+  .cartCheck {
+    margin-top: 5px;
   }
   .cart-list{
     flex: 3 1 60rem;
   }
   .cart-action{
     flex:1 1 20rem;
-    background-color: #f0f0f0; 
+    background-color: honeydew; 
     border-radius: .5rem;
     padding: 1rem;
+    text-align: center;
   }
   .cart-list-container{
     padding: 0;
     list-style-type: none;
     padding: 1rem;
+    margin-top: 45px;
   }
   .cart-list-container li{
     display: flex;
@@ -54,6 +60,7 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    margin-top: 60px;
   }
   .form-container{
     display:flex;
@@ -74,5 +81,9 @@
     padding: 1rem;
     border: .1rem #c0c0c0c0 solid;
     border-radius: .5rem;
+  }
+  .top-cart{
+    display: flex;
+    justify-content: center;
   }
   

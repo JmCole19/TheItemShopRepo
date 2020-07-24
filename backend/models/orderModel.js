@@ -11,10 +11,10 @@ const paymentSchema = {
 };
 
 const orderItemSchema = new mongoose.Schema({
-  name: { type: String, required: false },
-  qty: { type: Number, required: false },
-  image: { type: String, required: false },
-  price: { type: String, required: false },
+  name: { type: String, required: true },
+  qty: { type: Number, required: true },
+  image: { type: String, required: true },
+  price: { type: String, required: true },
   product: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Product',
@@ -40,4 +40,4 @@ const orderSchema = new mongoose.Schema({
 });
 
 const orderModel = mongoose.model("Order", orderSchema);
-export default orderModel; 
+export default orderModel;

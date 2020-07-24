@@ -19,15 +19,36 @@ router.get("/", async (req, res) => {
   const products = await Product.find({ ...category, ...searchKeyword }).sort(sortOrder);
   res.send(products);
 });
+
 router.get("/:id", async (req, res) => {
-    const product = await Product.findOne({_id: req.params.id});
-    if (product){
-        res.send(product);
-    }else{
-        res.status(404).send({message:"Product not found"})
-    }
-    
-  });
+  const product = await Product.findOne({ _id: req.params.id });
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: "Product not found" })
+  }
+
+});
+
+router.post("/:id/reviews", isAuth, async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  if (product) {
+    const review = {
+      name: req.body.name,
+      rating: Number(req.body.rating),
+      comment: req.body.comment,
+    };
+    product.reviews.push(review);
+    product.numReviews = product.reviews.length
+    product.rating = product.reviews.reduce((a, c) => c.rating + a, 0)/product.reviews.length;
+    const updatedProduct = await product.save();
+    res.status(201).send({ data: updatedProduct.reviews[updatedProduct.reviews.length - 1],
+               message: "Review Saved" })
+
+  } else {
+    res.status(404).send({ message: 'Proudct not found' })
+  }
+})
 
 
 // ROUTE FOR UPDATING ITEM ONLY IF ISAUTH AND ISADMIN REQUIREMENTS ARE MET

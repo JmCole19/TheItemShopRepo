@@ -1,51 +1,44 @@
 import React, { useEffect } from 'react';
-import './placeorder.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
-import {createOrder} from '../actions/orderActions';
-
-
+import { createOrder } from '../actions/orderActions';
+import './placeorder.css'
 function PlaceOrderScreen(props) {
 
-    const cart = useSelector(state => state.cart);
-    const orderCreate = useSelector(state => state.orderCreate);
-    const{ loading, success, error, order} = orderCreate;
-    
-    const { cartItems, shipping, payment} = cart;
-    if (!shipping){
-      props.hist.push("/shipping");
-    } else if(!payment){
-      props.location.push("/payment")
+  const cart = useSelector(state => state.cart);
+  const orderCreate = useSelector(state => state.orderCreate);
+  const { loading, success, error, order } = orderCreate;
+
+  const { cartItems, shipping, payment } = cart;
+  if (!shipping.address) {
+    props.history.push("/shipping");
+  } else if (!payment.paymentMethod) {
+    props.history.push("/payment");
+  }
+  const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
+  const shippingPrice = itemsPrice > 100 ? 0 : 10;
+  const taxPrice = 0.15 * itemsPrice;
+  const totalPrice = itemsPrice + shippingPrice + taxPrice;
+
+  const dispatch = useDispatch();
+
+  const placeOrderHandler = () => {
+    // create an order
+    dispatch(createOrder({
+      orderItems: cartItems, shipping, payment, itemsPrice, shippingPrice,
+      taxPrice, totalPrice
+    }));
+  }
+  useEffect(() => {
+    if (success) {
+      props.history.push("/order/" + order._id);
     }
 
-      const itemsPrice = cartItems.reduce((a, c) => a +c.price*c.qty, 0);
-      const shippingPrice = itemsPrice > 100 ?0 : 10;
-      const taxPrice = 0.15 * itemsPrice;
-      const totalPrice = itemsPrice + shippingPrice + taxPrice
-   
-    const dispatch = useDispatch();
-    
-    const placeOrderHandler = () =>{
-      dispatch(createOrder({
-        orderItems: cartItems, shipping, payment, itemsPrice, shippingPrice,
-        taxPrice,totalPrice
-      }))
-    }
-    useEffect(() => {
-      if(success){
-        props.history.push("/order/" + order._id)
-      }
-    }, [success])
+  }, [success]);
 
-    // Redirect to Shipping
-    const checkoutHandler = () => {
-        props.history.push("/signin?redirect=shipping");
-    }
-
-
-
-    return <div>
+  return <div className="tip-top">
+  <div className="top-placeholder">
     <CheckoutSteps step1 step2 step3 step4 ></CheckoutSteps>
     <div className="placeorder">
       <div className="placeorder-info">
@@ -53,12 +46,12 @@ function PlaceOrderScreen(props) {
           <h3>
             Shipping
           </h3>
-          <div>
+          <div className="shipping-font">
             {cart.shipping.address}, {cart.shipping.city},
           {cart.shipping.postalCode}, {cart.shipping.country},
           </div>
         </div>
-        <div>
+        <div className="shipping-font">
           <h3>Payment</h3>
           <div>
             Payment Method: {cart.payment.paymentMethod}
@@ -86,17 +79,17 @@ function PlaceOrderScreen(props) {
                       <img src={item.image} alt="product" />
                     </div>
                     <div className="cart-name">
-                      <div>
+                      <div className="shipping-font">
                         <Link to={"/product/" + item.product}>
                           {item.name}
                         </Link>
 
                       </div>
-                      <div>
+                      <div className="shipping-font">
                         Qty: {item.qty}
                       </div>
                     </div>
-                    <div className="cart-price">
+                    <div className="cart-price shipping-font">
                       ${item.price}
                     </div>
                   </li>
@@ -105,31 +98,32 @@ function PlaceOrderScreen(props) {
           </ul>
         </div>
 
-
+      
       </div>
       <div className="placeorder-action">
         <ul>
-          <li>
-            <button className="button primary full-width" onClick={placeOrderHandler} >Place Order</button>
-          </li>
+          
           <li>
             <h3>Order Summary</h3>
           </li>
           <li>
-            <div>Items</div>
-            <div>${itemsPrice}</div>
+            <div className="shipping-font" >Items</div>
+            <div className="shipping-font">${itemsPrice}</div>
           </li>
           <li>
-            <div>Shipping</div>
-            <div>${shippingPrice}</div>
+            <div className="shipping-font">Shipping</div>
+            <div className="shipping-font">${shippingPrice}</div>
           </li>
           <li>
-            <div>Tax</div>
-            <div>${taxPrice}</div>
+            <div className="shipping-font">Tax</div>
+            <div className="shipping-font">${taxPrice}</div>
           </li>
           <li>
-            <div>Order Total</div>
-            <div>${totalPrice}</div>
+            <div className="shipping-font">Order Total</div>
+            <div className="shipping-font">${totalPrice}</div>
+          </li>
+          <li>
+            <button className="button primary full-width" onClick={placeOrderHandler} >Place Order</button>
           </li>
         </ul>
 
@@ -139,7 +133,8 @@ function PlaceOrderScreen(props) {
 
     </div>
   </div>
+  </div>
 
 }
 
-export default PlaceOrderScreen; 
+export default PlaceOrderScreen;

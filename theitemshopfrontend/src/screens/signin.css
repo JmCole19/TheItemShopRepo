@@ -5,8 +5,8 @@
     flex-wrap: wrap;
     height: 550px;
     width: 500px;
-    margin-top: 55px;
-    background-color: rgba(107, 218, 248, 0.445);
+    margin-top: 115px;
+    background-color:rgba(36, 250, 36, 0.349);
     border-radius: 20%;
   }
 .form-container {
@@ -24,10 +24,55 @@
   padding: 1rem;
   list-style-type: none;
   z-index: 1;
-  background-color:rgba(36, 250, 36, 0.349);
+  background-color:rgba(31, 228, 18, 0.349);
   margin:0;
   margin-top:0.4rem;
 }
 .dropdown:hover .dropdown-content{
   display: block;
 } 
+.signUpbutton {
+  height: 60px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #fb9c04;;
+  color: rgb(0, 0, 0);
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none !important;
+  text-shadow: -1px -1px 1px #0742ca;
+  position: relative;
+  padding: 5px;
+  box-shadow: 5px 5px 0 rgba(73, 73, 73, 0.794);
+  transition: all 0.3s ease;
+  margin: 0 10px 0 0;
+  
+}
+.signInTop{
+  display: flex;
+  justify-content: center;
+}
+h4{
+  text-align: center;
+}
+.text-sign{
+text-align: center;
+justify-content: center;
+}
+.button.primarys{
+  display: flex;
+  height: 55px;
+  width: 160px;
+  border-radius: 10px;
+  background-color: #fb9c04;
+  color: black;
+  font-family: Helvetica, Arial, Sans-Serif;
+  font-size: 20px;
+  text-decoration: none;
+  text-shadow: -1px -1px 1px #0742ca;
+  box-shadow: 5px 5px 0 rgba(73, 73, 73, 0.794);
+  transition: all 0.3s ease;
+  margin: auto;
+  justify-content: center;
+}

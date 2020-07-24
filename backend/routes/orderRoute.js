@@ -9,9 +9,9 @@ router.get("/", isAuth, async (req, res) => {
   res.send(orders);
 });
 
-router.get("/mine", isAuth, async (req,res) => {
-    const orders = await Order.find({user: req.user._id});
-    res.send(orders);
+router.get("/mine", isAuth, async (req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+  res.send(orders);
 })
 
 router.get("/:id", isAuth, async (req, res) => {
@@ -47,7 +47,7 @@ router.post("/", isAuth, async (req, res) => {
   res.status(201).send({ message: "New Order Created", data: newOrderCreated });
 
 
-  
+
   router.put("/:id/pay", isAuth, async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {

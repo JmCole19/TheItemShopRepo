@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
-
 import SigninScreen from './screens/SigninScreen';
 import { useSelector } from 'react-redux';
 import RegisterScreen from './screens/RegisterScreen';
@@ -11,18 +10,14 @@ import ProductsScreen from './screens/ProductsScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
-<<<<<<< HEAD
 import guideFishList from './screens/guideFishList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AllItemsScreen from './screens/AllItems';
 import OrderScreen from './screens/OrderScreen';
 import guideFishPage from './screens/guideFishPage';
-=======
-import AllItemsScreen from './screens/AllItems';
-import OrderScreen from './screens/OrderScreen';
-import ProfileScreen from './screens/ProfileScreen';
+import SortedItemsScreen from './screens/SortedItemsScreen';
 import OrdersScreen from './screens/OrdersScreen';
->>>>>>> fcd05a9761ec2eb0653aa03044c0e77bdbf086da
+import ProfileScreen from './screens/ProfileScreen';
 
 
 
@@ -38,11 +33,11 @@ function App() {
       <div className="grid-container">
         <div className="headerDiv">
           <header className="header">
-            <div className="brand">
+            <button className="logo">
 
               <Link to="/"><img src="/images/item-shop-logo.png" alt="itemshoplogo"></img></Link>
 
-            </div>
+            </button>
             <div className="searchbox-wrap">
               <input type="text"
                 placeholder="Search for an Item..."
@@ -67,7 +62,7 @@ function App() {
             </button>
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
-                <Link to ="/orders">Admin</Link>
+                <button className="adminButt"><Link to ="/orders">Admin</Link></button>
                 
               </div>
             )}
@@ -79,8 +74,10 @@ function App() {
         <main className="main">
           
           <div className="content">
+            <Route path = "/sorted" component = {SortedItemsScreen}/>
             <Route path = "/orders" component = {OrdersScreen}/>
             <Route path = "/profile" component = {ProfileScreen}/>
+            <Route path = "/orders" component = {OrderScreen}/>
             <Route path = "/order/:id" component = {OrderScreen}/>
             <Route path ="/allitems" component = {AllItemsScreen}/>
             <Route path = "/products" component = {ProductsScreen}/>
@@ -92,21 +89,21 @@ function App() {
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
-<<<<<<< HEAD
-            <Route path="/Products" component={ProductsScreen} />
             <Route path = "/fish-guide" component = {guideFishList}/>
             <Route path = "/fish/:id" component = {guideFishPage}/>
-=======
-             
-            
->>>>>>> fcd05a9761ec2eb0653aa03044c0e77bdbf086da
           </div>
 
 
         </main>
         <div className="footerDiv">
           <footer className="footer">
-            All Rights Reserved
+            <div className="footer-top">
+              <div className="footer-colone"><h3>Connect with us here!</h3><p>Github Links</p></div>
+              <div className="footer-coltwo"><h3>About</h3><p>Need Help?</p></div>
+              <div className="footer-colthree"><h3>Data</h3><p>Data source</p><p>Logo</p></div>
+              <div className="footer-colfour"><h3>Legal</h3><p>Terms of service</p><p>Privacy Policy</p></div>
+            </div>
+           
           </footer>
         </div>
       </div>

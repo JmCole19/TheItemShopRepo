@@ -1,15 +1,19 @@
 /* Profile */
 
-.profile{
-    display: flex;
-    flex-wrap: wrap;
-  
-  }
-  
-  .profile-info{
-    flex: 1 1 30rem;
-  }
-  
-  .profile-orders{
-    flex: 3 1 60rem;
-  }
+.profileDiv,.profile{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.profile-info{
+  flex: 1 1 30rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-orders{
+  flex: 3 1 60rem;
+  margin-right: 15rem;
+}

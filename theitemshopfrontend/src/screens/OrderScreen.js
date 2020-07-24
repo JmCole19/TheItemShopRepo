@@ -26,8 +26,8 @@ function OrderScreen(props) {
   const { loading, order, error } = orderDetails;
 
   return loading ? <div>Loading ...</div> : error ? <div>{error}</div> :
-
-    <div>
+  <div className= "topOrder">
+    <div className="finOrderdiv">
       <div className="placeorder">
         <div className="placeorder-info">
           <div>
@@ -132,6 +132,7 @@ function OrderScreen(props) {
         </div>
 
       </div>
+    </div>
     </div>
 
 }
