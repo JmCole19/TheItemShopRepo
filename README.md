@@ -2,7 +2,7 @@
 
 <img src="theitemshopfrontend/public/images/item-shop-logo.png" width=300px>
 
->The Item Shop is an e-commerce application utilizing React.js.
+>The Item Shop is an e-commerce application utilizing React.js and Redux.
 >Browse our market place, create your own listings, and check out our available guides!
 
 ![Issues Badge](https://img.shields.io/github/issues/skooma1992/TheItemShop)
